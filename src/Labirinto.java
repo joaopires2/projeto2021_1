@@ -42,9 +42,16 @@ public class Labirinto {
         System.out.println(totalsaidas);
         while (totalsaidas != saidasenc) {
             if (x == 0 || x == 9 || y == 0 || y == 9) {
-                array[x][y] = '+';
+                array[x][y] = 'S';
                 x = 4;
                 y = 4;
+                for (a = 0; a < 10; a++) {
+                    for (e = 0; e < 10; e++) {
+                        if(array[a][e]=='+'){
+                            array[a][e]=' ';
+                        }
+                    }
+                }
                 saidasenc = saidasenc + 1;
                 array[4][4] = 'P';
                 System.out.println(" ");
@@ -54,7 +61,7 @@ public class Labirinto {
                     System.out.print("|" + a);
                     System.out.print("|");
                     for (e = 0; e < 10; e++) {
-                        System.out.print(array[a][e] + "|");
+                            System.out.print(array[a][e] + "|");
                     }
                     System.out.println(" ");
 
@@ -80,19 +87,19 @@ public class Labirinto {
                         } else {
 
                             //----------------------------------------------
-                            if ((array[x][y + 1] == '+' || array[x][y + 1] == '*') && (array[x][y - 1] == '+' || array[x][y - 1] == '*') && (array[x - 1][y] == '+' || array[x - 1][y] == '*')) {
+                            if ((array[x][y + 1] == '+' || array[x][y + 1] == '*'|| array[x][y + 1] == 'S') && (array[x][y - 1] == '+' || array[x][y - 1] == '*'||array[x][y - 1] == 'S') && (array[x - 1][y] == '+' || array[x - 1][y] == '*'|| array[x - 1][y] == 'S')) {
                                 array[x][y] = '+';
                                 x = x + 1;
                             } else {
-                                if ((array[x][y + 1] == '+' || array[x][y + 1] == '*') && (array[x][y - 1] == '+' || array[x][y - 1] == '*') && (array[x + 1][y] == '+' || array[x + 1][y] == '*')) {
+                                if ((array[x][y + 1] == '+' || array[x][y + 1] == '*'|| array[x][y + 1] == 'S') && (array[x][y - 1] == '+' || array[x][y - 1] == '*'|| array[x][y - 1] == 'S') && (array[x + 1][y] == '+' || array[x + 1][y] == '*'|| array[x + 1][y] == 'S')) {
                                     array[x][y] = '+';
                                     x = x - 1;
                                 } else {
-                                    if ((array[x + 1][y] == '+' || array[x + 1][y] == '*') && (array[x - 1][y] == '+' || array[x - 1][y] == '*') && (array[x][y - 1] == '+' || array[x][y - 1] == '*')) {
+                                    if ((array[x + 1][y] == '+' || array[x + 1][y] == '*'|| array[x + 1][y] == 'S') && (array[x - 1][y] == '+' || array[x - 1][y] == '*'|| array[x - 1][y] == 'S') && (array[x][y - 1] == '+' || array[x][y - 1] == '*'|| array[x][y - 1] == 'S')) {
                                         array[x][y] = '+';
                                         y = y + 1;
                                     } else {
-                                        if ((array[x + 1][y] == '+' || array[x + 1][y] == '*') && (array[x - 1][y] == '+' || array[x - 1][y] == '*') && (array[x][y + 1] == '+' || array[x][y + 1] == '*')) {
+                                        if ((array[x + 1][y] == '+' || array[x + 1][y] == '*'|| array[x + 1][y] == 'S') && (array[x - 1][y] == '+' || array[x - 1][y] == '*'|| array[x - 1][y] == 'S') && (array[x][y + 1] == '+' || array[x][y + 1] == '*'|| array[x][y + 1] == 'S')) {
                                             array[x][y] = '+';
                                             y = y - 1;
                                         } else {
