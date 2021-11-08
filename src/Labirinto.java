@@ -11,7 +11,6 @@ public class Labirinto {
             {'*', '*', '*', '*', ' ', ' ', '*', ' ', '*', '*'},
             {'*', '*', '*', '*', ' ', '*', '*', ' ', '*', '*'}};
     public static void main(String[] args) {
-
         int a, e, totalsaidas = 0, saidasenc = 0, x = 4, y = 4;
         System.out.println("  |0|1|2|3|4|5|6|7|8|9|");
         for (a = 0; a < 10; a++) {
