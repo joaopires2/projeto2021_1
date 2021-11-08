@@ -1,5 +1,7 @@
+import java.util.*;
+
 public class Labirinto {
-    public static char[][] array = {
+    public static char[][] prof = {
             {'*', '*', '*', ' ', '*', '*', '*', '*', '*', '*'},
             {'*', '*', '*', ' ', ' ', ' ', ' ', '*', '*', '*'},
             {'*', '*', '*', ' ', '*', '*', ' ', ' ', '*', '*'},
@@ -10,7 +12,40 @@ public class Labirinto {
             {'*', '*', '*', '*', '*', ' ', ' ', ' ', '*', '*'},
             {'*', '*', '*', '*', ' ', ' ', '*', ' ', '*', '*'},
             {'*', '*', '*', '*', ' ', '*', '*', ' ', '*', '*'}};
+
+    public static char[][] test = {
+            {'*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
+            {'*', '*', '*', '*', ' ', ' ', ' ', '*', '*', '*'},
+            {'*', '*', '*', '*', '*', '*', ' ', '*', '*', '*'},
+            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+            {' ', ' ', '*', '*', 'P', ' ', '*', '*', ' ', '*'},
+            {'*', ' ', '*', '*', '*', ' ', '*', ' ', ' ', '*'},
+            {'*', '*', '*', '*', '*', ' ', '*', ' ', '*', '*'},
+            {'*', '*', '*', '*', '*', ' ', '*', ' ', ' ', '*'},
+            {'*', '*', '*', '*', ' ', ' ', '*', '*', '*', '*'},
+            {'*', '*', '*', '*', ' ', '*', '*', '*', '*', '*'}};
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Labirinto: ");
+        System.out.println("1- test");
+        System.out.println("2- prof");
+        System.out.println("3 - exit");
+
+        int labarinto;
+        labarinto = input.nextInt();
+
+        char[][] array = new char[0][];
+        if (labarinto == 1){
+            array = test;
+        }else{
+            if (labarinto == 2){
+                array = prof;
+            }else{
+                System.out.print("Fim exit");
+                System.exit(0);
+            }
+        }
         int a, e, totalsaidas = 0, saidasenc = 0, x = 4, y = 4;
         System.out.println("  |0|1|2|3|4|5|6|7|8|9|");
         for (a = 0; a < 10; a++) {
@@ -61,7 +96,7 @@ public class Labirinto {
                     System.out.print("|" + a);
                     System.out.print("|");
                     for (e = 0; e < 10; e++) {
-                            System.out.print(array[a][e] + "|");
+                        System.out.print(array[a][e] + "|");
                     }
                     System.out.println(" ");
 
